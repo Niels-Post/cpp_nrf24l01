@@ -12,15 +12,15 @@ Features
 ---
 - All registers addresses and register bitmasks in a definition file
 - Methods for the most used functions
-- Setters for RX pipe attributes per pipe, as well as all pipes at once
+- Setters for RX pipe attributes per pipe, as well as for all receive pipes at once
 - Supports Auto_Acknowledge, Dynamic Payload Width, and NOACK transactions
 
 
 Dependencies
 -----
-- SPI implementation (from [cpp_spi](https://github.com/Niels-Post/cpp_spi)  )
-- For communication with microcontroller hardware: [hwlib](https://github.com/wovo/hwlib)
+For SPI communication with the module, this library requires [cpp_spi](https://github.com/Niels-Post/cpp_spi) 
 
+For pin-level abstraction, [hwlib](https://github.com/wovo/hwlib) is used.
 
 Since this library was originally used for an embedded project, the included makefile is written for [BMPTK](http://github.com/wovo/bmptk).
 However, the library can also be compiled without BMPTK, for which instructions are below.
