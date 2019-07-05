@@ -14,7 +14,6 @@
 #include <spi/bus_base.hpp>
 #include <nrf24l01plus/definitions.hpp>
 #include <nrf24l01plus/address.hpp>
-#include <cout_debug.hpp>
 
 namespace nrf24l01 {
     /**
@@ -309,7 +308,6 @@ namespace nrf24l01 {
          * @return FIFO status byte
          */
         uint8_t fifo_status() {
-
             uint8_t status;
             read_register(NRF_REGISTER::FIFO_STATUS, &status);
             return status;
