@@ -12,3 +12,4 @@ SEARCH += $(NRF24L01DIR)include/
 HEADERS += $(NRF24L01DIR)include/nrf24l01plus/address.hpp
 HEADERS += $(NRF24L01DIR)include/nrf24l01plus/definitions.hpp
 HEADERS += $(NRF24L01DIR)include/nrf24l01plus/nrf24l01plus.hpp
+HEADERS += $(NRF24L01DIR)include/nrf24l01plus/self_test.hpp
