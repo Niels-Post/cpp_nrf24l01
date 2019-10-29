@@ -19,14 +19,18 @@ namespace nrf24l01 {
                 register_value[i] = 0;
             }
             nrf.read_register(addr, register_value);
+//            hwlib::cout << "addr:" << addr << ",byte_size:" << byte_size ;
             for (uint8_t i = 0; i < byte_size; i++) {
+//                hwlib::cout << ",register_value:" << register_value[i] << ",state:" << state[i];
                 if (((register_value[i] ^ state[i]) & ~dc_mask) != 0) {
-                    LOG("Failed register test",
+                    hwlib::cout << "Failed register test, " <<
                         "address: " << addr << " - was " << hwlib::hex << register_value[i] << ", but should be "
-                                    << state[i]);
+                                    << state[i] << hwlib::endl;
                     register_success = false;
+                    break;
                 }
             }
+//            hwlib::cout << hwlib::endl;
         }
 
         void assert_register1_state(uint8_t addr, uint8_t state, uint8_t dc_mask = 0x00) {
@@ -92,7 +96,6 @@ namespace nrf24l01 {
             do {
                 nrf.no_operation();
                 if ((nrf.last_status & nrf24l01::NRF_STATUS::MAX_RT) > 0) {
-                    LOG("transmission failed", "");
                     noack_transmission_success = false;
                 }
 
